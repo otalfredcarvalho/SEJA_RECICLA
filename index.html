@@ -19,7 +19,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         html { scroll-behavior: smooth; }
-        body { line-height: 1.6; color: #333; padding-top: 90px; }
+        body { line-height: 1.6; color: #333; padding-top: 100px; }
 
         /* HEADER */
         header {
@@ -33,13 +33,13 @@
         }
         
         .logo a { display: flex; align-items: center; text-decoration: none; }
-        .logo img { height: 65px; width: auto; transition: 0.3s; }
+        .logo img { height: 70px; width: auto; transition: 0.3s; }
 
         nav { display: flex; flex-wrap: wrap; }
-        nav a { margin-left: 20px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
+        nav a { margin-left: 20px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; }
         nav a:hover { color: var(--verde-acao); }
 
-        /* WHATSAPP FLUTUANTE */
+        /* WHATSAPP */
         .btn-whatsapp {
             position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
             background-color: var(--whatsapp); color: #FFF; border-radius: 50px;
@@ -48,44 +48,44 @@
             text-decoration: none; transition: 0.4s;
         }
 
-        /* HERO SECTION */
+        /* SEÇÕES */
+        section { padding: 80px 10%; text-align: center; }
+
+        /* HOME */
         #home {
-            padding: 120px 8%;
+            padding: 140px 8%;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('BG_sustentavel.jpg');
             background-size: cover; background-position: center; color: var(--branco);
-            display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        #home h1 { font-size: 3rem; margin-bottom: 15px; max-width: 700px; }
+        #home h1 { font-size: 3rem; margin-bottom: 20px; max-width: 800px; }
         .hero-btn { background: var(--verde-acao); color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; }
 
-        /* GRID SOLUÇÕES - Correção das Imagens */
-        section { padding: 80px 8%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card img { width: 100%; height: 250px; object-fit: cover; background: #eee; }
+        /* GRID SOLUÇÕES */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: 0.3s; }
+        .card img { width: 100%; height: 220px; object-fit: cover; background: #eee; }
         .card-body { padding: 25px; }
         .card-body h3 { color: var(--verde-escuro); margin-bottom: 10px; }
 
-        /* CONTATO */
-        form { background: white; padding: 40px; border-radius: 15px; max-width: 600px; margin: 0 auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .btn-enviar { background: var(--verde-acao); color: white; padding: 15px; border: none; width: 100%; cursor: pointer; font-weight: bold; }
+        /* CONSULTORIA */
+        #consultoria { background: var(--verde-escuro); color: white; }
 
-        /* FOOTER (MODELO APRESENTADO) */
-        footer {
-            background: var(--preto-footer);
-            color: white;
-            padding: 60px 8% 30px;
-            text-align: center;
-        }
-        .footer-logo img { height: 80px; margin-bottom: 20px; }
-        .footer-info { font-size: 0.9rem; color: #ccc; border-top: 1px solid #333; margin-top: 20px; padding-top: 20px; }
+        /* CONTATO */
+        #contato { background: var(--cinza-fundo); }
+        form { background: white; padding: 40px; border-radius: 15px; max-width: 600px; margin: 0 auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+        .btn-enviar { background: var(--verde-acao); color: white; padding: 15px; border: none; width: 100%; cursor: pointer; font-weight: bold; font-size: 1rem; }
+
+        /* FOOTER PRETO */
+        footer { background: var(--preto-footer); color: white; padding: 60px 5% 30px; text-align: center; }
+        .footer-logo img { height: 60px; margin-bottom: 20px; }
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 15px; height: auto; }
             nav { margin-top: 15px; }
-            #home h1 { font-size: 2.2rem; }
+            #home h1 { font-size: 2rem; }
             body { padding-top: 140px; }
         }
     </style>
@@ -98,12 +98,13 @@
 
     <header>
         <div class="logo">
-            <a href="#home"><img src="SEJA_RECICLA_03.png" alt="Logo"></a>
+            <a href="#home"><img src="SEJA_RECICLA_03.png" alt="Logo SEJA RECICLA"></a>
         </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#quem-somos">Quem Somos</a>
             <a href="#solucoes">Soluções</a>
+            <a href="#consultoria">Consultoria</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
@@ -112,6 +113,11 @@
         <h1>Sua empresa em harmonia com o meio ambiente.</h1>
         <p>Atitude que transforma o mundo.</p>
         <a href="#contato" class="hero-btn">Solicitar Orçamento</a>
+    </section>
+
+    <section id="quem-somos">
+        <h2>Compromisso com o Futuro</h2>
+        <p style="max-width: 800px; margin: 20px auto;">A SEJA RECICLA atua na vanguarda da economia circular em Minas Gerais, transformando desafios ambientais em oportunidades de negócio sustentáveis.</p>
     </section>
 
     <section id="solucoes">
@@ -135,17 +141,22 @@
                 <img src="SEJA_RECICLA_04.png" alt="E-Waste">
                 <div class="card-body">
                     <h3>E-Waste</h3>
-                    <p>Descarte ecológico de sucatas eletrónicas e TI.</p>
+                    <p>Descarte ecológico de sucatas eletrônicas e TI.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contato" style="background: var(--cinza-fundo);">
+    <section id="consultoria">
+        <h2>Consultoria Especializada</h2>
+        <p>Ajudamos sua empresa a se adequar às normas ambientais com eficiência e conformidade legal.</p>
+    </section>
+
+    <section id="contato">
         <h2>Fale Conosco</h2>
         <form>
-            <input type="text" placeholder="Nome da Empresa" required>
-            <input type="email" placeholder="E-mail de contato" required>
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="email" placeholder="E-mail Corporativo" required>
             <textarea placeholder="Como podemos ajudar?" rows="5" required></textarea>
             <button type="submit" class="btn-enviar">Enviar Mensagem</button>
         </form>
@@ -153,12 +164,10 @@
 
     <footer>
         <div class="footer-logo">
-            <img src="SEJA_RECICLA_03.png" alt="Logo Seja Recicla Rodapé">
+            <img src="SEJA_RECICLA_03.png" alt="Logo Footer">
         </div>
         <p><strong>SEJA RECICLA</strong> - Atitude que transforma o mundo.</p>
-        <div class="footer-info">
-            <p>© 2026 Todos os direitos reservados. Minas Gerais, Brasil.</p>
-        </div>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">© 2026 Todos os direitos reservados.</p>
     </footer>
 
 </body>
