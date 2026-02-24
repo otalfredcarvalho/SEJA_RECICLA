@@ -1,23 +1,27 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEJA RECICLA - Atitude que transforma o mundo.</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        /* Variáveis de Cores para facilitar a troca */
+        /* Variáveis de Cores */
         :root {
             --verde-escuro: #2d5a27;
             --verde-acao: #4CAF50;
+            --whatsapp: #25d366; /* Definindo a cor do Whats */
             --cinza-fundo: #f4f7f6;
             --branco: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         html { scroll-behavior: smooth; }
-        body { line-height: 1.6; color: #333; }
+        body { line-height: 1.6; color: #333; padding-top: 100px; }
 
-/* Menu */
+        /* Menu de Navegação */
         header {
             background: var(--branco);
             padding: 10px 10%;
@@ -27,48 +31,39 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed; width: 100%; top: 0; z-index: 1000;
         }
-        .logo a { display: block; } /* Logo clicável */
-        .logo img { height: 150px; width: auto; }
-        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 600; }
+        
+        /* Logo clicável (Ação de Home) */
+        .logo a { display: block; text-decoration: none; }
+        .logo img { height: 70px; width: auto; transition: 0.3s; }
+        .logo img:hover { transform: scale(1.05); }
+
+        nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--verde-acao); }
 
         /* Botão WhatsApp Flutuante */
         .btn-whatsapp {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
             background-color: var(--whatsapp);
             color: #FFF;
             border-radius: 50px;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 1000;
+            font-size: 35px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.4s;
         }
-        .btn-whatsapp:hover { transform: scale(1.1); background-color: #128c7e; }
-
-        /* Cabeçalho */
-        header {
-            background: var(--branco);
-            padding: 10px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-        }
-        .logo img { height: 150px; width: auto; }
-        nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 600; transition: 0.3s; }
-        nav a:hover { color: var(--verde-acao); }
+        .btn-whatsapp:hover { transform: scale(1.15); background-color: #128c7e; }
 
         /* Sessões Gerais */
-        section { padding: 100px 10%; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        section { padding: 80px 10%; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 
         /* Home */
         #home {
@@ -84,7 +79,7 @@
         .conteudo-texto { max-width: 800px; font-size: 1.1rem; color: #555; }
         #quem-somos h2 { color: var(--verde-escuro); margin-bottom: 20px; font-size: 2.5rem; }
 
-        /* Soluções (Grid de Cards) */
+        /* Soluções */
         #solucoes { background: var(--branco); }
         #solucoes h2 { margin-bottom: 40px; color: var(--verde-escuro); }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; }
@@ -99,25 +94,29 @@
             background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1454165833767-027ffea9e78b?q=80&w=2070');
             background-size: cover; color: white;
         }
-        #consultoria p { max-width: 700px; font-size: 1.2rem; }
 
-        /* Contato Personalizado */
+        /* Contato */
         #contato { background: var(--cinza-fundo); }
         form { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 600px; }
         .form-group { margin-bottom: 20px; text-align: left; }
         input, textarea { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 10px; outline: none; transition: 0.3s; font-size: 1rem; }
         input:focus, textarea:focus { border-color: var(--verde-acao); }
         button { background: var(--verde-escuro); color: white; padding: 15px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
-        button:hover { background: var(--verde-acao); }
-
+        
         footer { background: #1a1a1a; color: white; padding: 40px; }
     </style>
 </head>
 <body>
 
+    <a href="https://wa.me/5531992970090" class="btn-whatsapp" target="_blank" title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header>
         <div class="logo">
-            <img src="SEJA_RECICLA_03.png" alt="Logo SEJA RECICLA">
+            <a href="#home">
+                <img src="SEJA_RECICLA_03.png" alt="Logo SEJA RECICLA">
+            </a>
         </div>
         <nav>
             <a href="#home">Home</a>
@@ -137,7 +136,7 @@
     <section id="quem-somos">
         <h2>Compromisso com o Futuro</h2>
         <div class="conteudo-texto">
-            <p>A <strong>SEJA RECICLA</strong> é mais que uma empresa de coleta; somos parceiros estratégicos na jornada da sustentabilidade. Ajudamos nossos clientes a reduzir o impacto ambiental através da economia circular, transformando o que antes era "lixo" em matéria-prima e valor para o mercado.</p>
+            <p>A <strong>SEJA RECICLA</strong> é mais que uma empresa de coleta; somos parceiros estratégicos na jornada da sustentabilidade. Ajudamos nossos clientes a reduzir o impacto ambiental através da economia circular.</p>
         </div>
     </section>
 
@@ -148,21 +147,21 @@
                 <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?q=80&w=800" alt="Gestão de Resíduos">
                 <div class="card-body">
                     <h3>Gestão de Resíduos</h3>
-                    <p>Coleta, transporte e destinação final de resíduos perigosos e não perigosos com total rastreabilidade.</p>
+                    <p>Coleta, transporte e destinação final de resíduos com total rastreabilidade.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=800" alt="Logística Reversa">
                 <div class="card-body">
                     <h3>Logística Reversa</h3>
-                    <p>Implementamos sistemas para o retorno de produtos e embalagens pós-consumo ao ciclo produtivo.</p>
+                    <p>Retorno de produtos pós-consumo ao ciclo produtivo com eficiência.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1605600611284-19520575e963?q=80&w=800" alt="Sucata Eletrônica">
                 <div class="card-body">
                     <h3>E-Waste (Eletrônicos)</h3>
-                    <p>Descarte seguro de equipamentos de TI e eletrônicos, garantindo a destruição de dados sensíveis.</p>
+                    <p>Descarte seguro de equipamentos de TI e destruição de dados sensíveis.</p>
                 </div>
             </div>
         </div>
@@ -170,13 +169,12 @@
 
     <section id="consultoria">
         <h2>Consultoria Especializada</h2>
-        <p>Sua empresa está em conformidade com a PNRS? Nós cuidamos de toda a burocracia, licenciamento ambiental e relatórios de sustentabilidade (ESG) para você focar no seu negócio.</p>
+        <p>Sua empresa está em conformidade com a PNRS? Nós cuidamos de toda a burocracia e licenciamento ambiental para você.</p>
         <a href="#contato" class="hero-btn" style="background: white; color: var(--verde-escuro); margin-top: 30px;">Falar com Consultor</a>
     </section>
 
     <section id="contato">
         <h2>Fale Conosco</h2>
-        <p style="margin-bottom: 30px;">Dúvidas ou orçamentos? Nossa equipe está pronta para te atender.</p>
         <form>
             <div class="form-group">
                 <input type="text" placeholder="Nome Completo" required>
