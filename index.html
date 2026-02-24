@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEJA RECICLA - Atitude que transforma o mundo.</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -13,11 +14,12 @@
             --whatsapp: #25d366;
             --cinza-fundo: #f4f7f6;
             --branco: #ffffff;
+            --preto-footer: #000000;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         html { scroll-behavior: smooth; }
-        body { line-height: 1.6; color: #333; padding-top: 80px; }
+        body { line-height: 1.6; color: #333; padding-top: 90px; }
 
         /* HEADER */
         header {
@@ -29,47 +31,68 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed; width: 100%; top: 0; z-index: 1000;
         }
-        .logo img { height: 60px; width: auto; transition: 0.3s; }
-        nav a { margin-left: 20px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
+        
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 65px; width: auto; transition: 0.3s; }
 
-        /* BOTÃO WHATSAPP */
+        nav { display: flex; flex-wrap: wrap; }
+        nav a { margin-left: 20px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
+        nav a:hover { color: var(--verde-acao); }
+
+        /* WHATSAPP FLUTUANTE */
         .btn-whatsapp {
             position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-            background-color: var(--whatsapp); color: #FFF; border-radius: 50%;
+            background-color: var(--whatsapp); color: #FFF; border-radius: 50px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 2px 4px 10px rgba(0,0,0,0.3); z-index: 2000;
-            text-decoration: none;
+            font-size: 32px; box-shadow: 2px 4px 15px rgba(0,0,0,0.3); z-index: 2000;
+            text-decoration: none; transition: 0.4s;
         }
 
-        /* SEÇÃO HOME */
+        /* HERO SECTION */
         #home {
             padding: 120px 8%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('BG_sustentavel.jpg');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('BG_sustentavel.jpg');
             background-size: cover; background-position: center; color: var(--branco);
-            text-align: left;
+            display: flex; flex-direction: column; align-items: flex-start; text-align: left;
         }
-        #home h1 { font-size: 2.8rem; margin-bottom: 20px; }
+        #home h1 { font-size: 3rem; margin-bottom: 15px; max-width: 700px; }
+        .hero-btn { background: var(--verde-acao); color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; }
 
-        /* SOLUÇÕES (CARDS) */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 0; }
-        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-body { padding: 20px; text-align: center; }
+        /* GRID SOLUÇÕES - Correção das Imagens */
+        section { padding: 80px 8%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card img { width: 100%; height: 250px; object-fit: cover; background: #eee; }
+        .card-body { padding: 25px; }
+        .card-body h3 { color: var(--verde-escuro); margin-bottom: 10px; }
 
-        /* FOOTER PRETO (CONFORME LAYOUT) */
-        footer { background: #000; color: white; padding: 40px 5%; text-align: center; }
+        /* CONTATO */
+        form { background: white; padding: 40px; border-radius: 15px; max-width: 600px; margin: 0 auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn-enviar { background: var(--verde-acao); color: white; padding: 15px; border: none; width: 100%; cursor: pointer; font-weight: bold; }
+
+        /* FOOTER (MODELO APRESENTADO) */
+        footer {
+            background: var(--preto-footer);
+            color: white;
+            padding: 60px 8% 30px;
+            text-align: center;
+        }
         .footer-logo img { height: 80px; margin-bottom: 20px; }
+        .footer-info { font-size: 0.9rem; color: #ccc; border-top: 1px solid #333; margin-top: 20px; padding-top: 20px; }
 
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px; }
+            header { flex-direction: column; padding: 15px; height: auto; }
             nav { margin-top: 15px; }
-            #home h1 { font-size: 2rem; }
+            #home h1 { font-size: 2.2rem; }
+            body { padding-top: 140px; }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/5531992970090" class="btn-whatsapp" target="_blank">
+    <a href="https://wa.me/5531992970090?text=Olá,%20gostaria%20de%20um%20orçamento" class="btn-whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -79,6 +102,7 @@
         </div>
         <nav>
             <a href="#home">Home</a>
+            <a href="#quem-somos">Quem Somos</a>
             <a href="#solucoes">Soluções</a>
             <a href="#contato">Contato</a>
         </nav>
@@ -87,32 +111,54 @@
     <section id="home">
         <h1>Sua empresa em harmonia com o meio ambiente.</h1>
         <p>Atitude que transforma o mundo.</p>
+        <a href="#contato" class="hero-btn">Solicitar Orçamento</a>
     </section>
 
-    <section id="solucoes" style="padding: 60px 8%;">
-        <h2 style="text-align: center; color: var(--verde-escuro);">Nossas Soluções</h2>
+    <section id="solucoes">
+        <h2>Nossas Soluções</h2>
         <div class="grid">
             <div class="card">
-                <img src="árvores_reciclaves.jpg" alt="Gestão">
-                <div class="card-body"><h3>Gestão Industrial</h3></div>
+                <img src="árvores_reciclaves.jpg" alt="Gestão de Resíduos">
+                <div class="card-body">
+                    <h3>Gestão de Resíduos</h3>
+                    <p>Coleta, transporte e destinação final de resíduos industriais.</p>
+                </div>
             </div>
             <div class="card">
-                <img src="maos_reciclaves.jpg" alt="Logística">
-                <div class="card-body"><h3>Logística Reversa</h3></div>
+                <img src="maos_reciclaves.jpg" alt="Logística Reversa">
+                <div class="card-body">
+                    <h3>Logística Reversa</h3>
+                    <p>Implementação de sistemas de retorno pós-consumo.</p>
+                </div>
             </div>
             <div class="card">
-                <img src="SEJA_RECICLA_04.png" alt="Sustentabilidade">
-                <div class="card-body"><h3>Eco Consultoria</h3></div>
+                <img src="SEJA_RECICLA_04.png" alt="E-Waste">
+                <div class="card-body">
+                    <h3>E-Waste</h3>
+                    <p>Descarte ecológico de sucatas eletrónicas e TI.</p>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section id="contato" style="background: var(--cinza-fundo);">
+        <h2>Fale Conosco</h2>
+        <form>
+            <input type="text" placeholder="Nome da Empresa" required>
+            <input type="email" placeholder="E-mail de contato" required>
+            <textarea placeholder="Como podemos ajudar?" rows="5" required></textarea>
+            <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+        </form>
     </section>
 
     <footer>
         <div class="footer-logo">
-            <img src="SEJA_RECICLA_03.png" alt="Logo Footer">
+            <img src="SEJA_RECICLA_03.png" alt="Logo Seja Recicla Rodapé">
         </div>
-        <p>SEJA RECICLA - Atitude que transforma o mundo.</p>
-        <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">© 2026 Todos os direitos reservados.</p>
+        <p><strong>SEJA RECICLA</strong> - Atitude que transforma o mundo.</p>
+        <div class="footer-info">
+            <p>© 2026 Todos os direitos reservados. Minas Gerais, Brasil.</p>
+        </div>
     </footer>
 
 </body>
