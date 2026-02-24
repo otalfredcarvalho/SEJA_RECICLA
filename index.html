@@ -32,7 +32,8 @@
         }
         
         .logo a { display: flex; align-items: center; }
-        .logo img { height: 100px; width: auto; transition: 0.3s; }
+        /* Ajustei para a imagem não quebrar se não existir */
+        .logo img { height: 80px; width: auto; min-width: 50px; transition: 0.3s; background: #eee; }
 
         nav { display: flex; flex-wrap: wrap; justify-content: center; }
         nav a { margin: 5px 10px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
@@ -47,38 +48,38 @@
         }
 
         /* SEÇÕES */
-        section { padding: 60px 5%; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        section { padding: 80px 5%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 
         #home {
-            padding: 120px 5%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('BG_sustentavel.jpg');
+            padding: 140px 5%;
+            /* Troquei o arquivo local por um link real para teste */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070');
             background-size: cover; background-position: center; color: var(--branco);
         }
-        #home h1 { font-size: 2.2rem; margin-bottom: 20px; }
+        #home h1 { font-size: 2.5rem; margin-bottom: 20px; }
 
         .hero-btn { background: var(--verde-acao); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 20px; }
 
         /* GRIDS */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; margin-top: 30px; }
         .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
         .card-body { padding: 20px; }
 
         /* FORMULÁRIO */
-        form { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 500px; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1.5px solid #eee; border-radius: 10px; }
+        form { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1.5px solid #eee; border-radius: 10px; outline: none; }
+        input:focus { border-color: var(--verde-acao); }
         button { background: var(--verde-escuro); color: white; padding: 15px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-weight: bold; }
 
         footer { background: #1a1a1a; color: white; padding: 30px; text-align: center; }
 
-        /* AJUSTES PARA CELULAR (RESPONSIVIDADE) */
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 10px; }
-            nav { margin-top: 10px; }
-            nav a { margin: 5px; font-size: 0.8rem; }
+            header { flex-direction: column; padding: 15px; }
+            nav { margin-top: 15px; }
             #home h1 { font-size: 1.8rem; }
-            section { padding: 40px 5%; }
-            .logo img { height: 50px; }
+            .logo img { height: 60px; }
         }
     </style>
 </head>
@@ -96,7 +97,6 @@
             <a href="#home">Home</a>
             <a href="#quem-somos">Quem Somos</a>
             <a href="#solucoes">Soluções</a>
-            <a href="#consultoria">Consultoria</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
@@ -109,19 +109,28 @@
 
     <section id="quem-somos" style="background: var(--cinza-fundo);">
         <h2>Quem Somos</h2>
-        <p style="max-width: 800px; margin-top: 20px;">A SEJA RECICLA atua na vanguarda da economia circular em Minas Gerais, transformando desafios ambientais em oportunidades de negócio.</p>
+        <p style="max-width: 800px; margin-top: 20px;">
+            A <strong>SEJA RECICLA</strong> atua na vanguarda da economia circular em Minas Gerais, 
+            transformando desafios ambientais em oportunidades de negócio com foco em rastreabilidade e eficiência.
+        </p>
     </section>
 
     <section id="solucoes">
         <h2>Nossas Soluções</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?q=80&w=800" alt="Imagem 1">
-                <div class="card-body"><h3>Gestão Industrial</h3><p>Coleta e processamento especializado.</p></div>
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800" alt="Gestão">
+                <div class="card-body">
+                    <h3>Gestão Industrial</h3>
+                    <p>Coleta e processamento especializado de resíduos sólidos.</p>
+                </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=800" alt="Imagem 2">
-                <div class="card-body"><h3>Logística Reversa</h3><p>Sistemas de retorno de pós-consumo.</p></div>
+                <img src="https://images.unsplash.com/photo-1605600611284-19520575e963?q=80&w=800" alt="Logística">
+                <div class="card-body">
+                    <h3>Logística Reversa</h3>
+                    <p>Implementação de sistemas de retorno para conformidade ambiental.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -129,15 +138,15 @@
     <section id="contato" style="background: var(--cinza-fundo);">
         <h2>Fale Conosco</h2>
         <form>
-            <input type="text" placeholder="Seu Nome">
-            <input type="email" placeholder="E-mail">
-            <textarea placeholder="Como podemos ajudar?" rows="4"></textarea>
-            <button type="submit">Enviar</button>
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="E-mail" required>
+            <textarea placeholder="Como podemos ajudar?" rows="4" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
         </form>
     </section>
 
     <footer>
-        <p>© 2026 SEJA RECICLA</p>
+        <p>© 2026 SEJA RECICLA - Atitude que transforma o mundo.</p>
     </footer>
 
 </body>
