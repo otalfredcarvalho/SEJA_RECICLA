@@ -3,83 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEJA RECICLA</title>
+    <title>SEJA RECICLA - Atitude que transforma o mundo.</title>
     <style>
-        /* Configurações Gerais */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { line-height: 1.6; color: #333; padding-top: 80px; } /* Adicionado padding para não cobrir a primeira seção */
-        
-        section { padding: 80px 10%; min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        /* Variáveis de Cores para facilitar a troca */
+        :root {
+            --verde-escuro: #2d5a27;
+            --verde-acao: #4CAF50;
+            --cinza-fundo: #f4f7f6;
+            --branco: #ffffff;
+        }
 
-        /* Menu de Navegação */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { line-height: 1.6; color: #333; }
+
+        /* Cabeçalho */
         header {
-            background: #ffffff; /* Fundo sólido para garantir visibilidade */
+            background: var(--branco);
             padding: 10px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            left: 0;
-            z-index: 9999; /* Z-index bem alto */
+            position: fixed; width: 100%; top: 0; z-index: 1000;
         }
+        .logo img { height: 100px; width: auto; }
+        nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--verde-acao); }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            min-width: 150px; /* Garante espaço para a imagem */
-        }
+        /* Sessões Gerais */
+        section { padding: 100px 10%; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 
-        .logo img { 
-            height: 100px; /* Aumentei um pouco para melhor visualização */
-            width: auto; 
-            display: block; 
-        }
-
-        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: #4CAF50; }
-
-        /* Seções - Mantendo seus estilos */
+        /* Home */
         #home {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2013');
-            background-size: cover; background-position: center; color: white; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070');
+            background-size: cover; background-position: center; color: var(--branco);
         }
-        .hero-btn { background: #4CAF50; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
+        #home h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero-btn { background: var(--verde-acao); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 20px; }
+        .hero-btn:hover { background: var(--verde-escuro); transform: scale(1.05); }
 
-        #quem-somos { 
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070');
-            background-size: cover; text-align: center; 
-        }
+        /* Quem Somos */
+        #quem-somos { background: var(--cinza-fundo); }
+        .conteudo-texto { max-width: 800px; font-size: 1.1rem; color: #555; }
+        #quem-somos h2 { color: var(--verde-escuro); margin-bottom: 20px; font-size: 2.5rem; }
 
-        #solucoes { background: white; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%; margin-top: 40px; }
-        .card { padding: 0; border: 1px solid #ddd; border-radius: 15px; text-align: center; overflow: hidden; background: #fff; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .card-img { width: 100%; height: 180px; object-fit: cover; }
-        .card-content { padding: 20px; }
+        /* Soluções (Grid de Cards) */
+        #solucoes { background: var(--branco); }
+        #solucoes h2 { margin-bottom: 40px; color: var(--verde-escuro); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; }
+        .card { background: var(--branco); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; border-bottom: 4px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-color: var(--verde-acao); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-body { padding: 25px; }
+        .card-body h3 { margin-bottom: 15px; color: var(--verde-escuro); }
 
+        /* Consultoria */
         #consultoria { 
-            background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.85)), url('https://images.unsplash.com/photo-1454165833767-027ffea9e78b?q=80&w=2070');
-            background-size: cover; color: white; text-align: center; 
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1454165833767-027ffea9e78b?q=80&w=2070');
+            background-size: cover; color: white;
         }
+        #consultoria p { max-width: 700px; font-size: 1.2rem; }
 
-        #contato { background: #f9f9f9; }
-        form { display: flex; flex-direction: column; width: 100%; max-width: 500px; gap: 15px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; }
-        button { background: #2d5a27; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
-        button:hover { background: #4CAF50; }
+        /* Contato Personalizado */
+        #contato { background: var(--cinza-fundo); }
+        form { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 600px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        input, textarea { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 10px; outline: none; transition: 0.3s; font-size: 1rem; }
+        input:focus, textarea:focus { border-color: var(--verde-acao); }
+        button { background: var(--verde-escuro); color: white; padding: 15px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+        button:hover { background: var(--verde-acao); }
 
-        footer { background: #1a1a1a; color: white; text-align: center; padding: 30px; }
+        footer { background: #1a1a1a; color: white; padding: 40px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="SEJA_RECICLA_04.png?v=1" alt="Logo SEJA RECICLA">
+            <img src="SEJA_RECICLA_04.png" alt="Logo SEJA RECICLA">
         </div>
         <nav>
             <a href="#home">Home</a>
@@ -91,61 +93,71 @@
     </header>
 
     <section id="home">
-        <h1>Transformando Resíduos em Valor</h1>
-        <p>Logística reversa e gestão sustentável para sua empresa.</p>
-        <a href="#contato" class="hero-btn">Solicitar Orçamento</a>
+        <h1>Sua empresa em harmonia com o meio ambiente</h1>
+        <p>Especialistas em logística reversa e gestão total de resíduos industriais e comerciais.</p>
+        <a href="#contato" class="hero-btn">Solicitar Diagnóstico Gratuito</a>
     </section>
 
     <section id="quem-somos">
-        <h2 style="color: #2d5a27; margin-bottom: 20px;">Quem Somos</h2>
-        <p style="max-width: 700px; font-size: 1.2rem;">A <strong>SEJA RECICLA</strong> nasceu com a missão de liderar a transição para uma economia circular. Atuamos com tecnologia e responsabilidade para garantir que cada resíduo encontre seu caminho de volta ao ciclo produtivo.</p>
+        <h2>Compromisso com o Futuro</h2>
+        <div class="conteudo-texto">
+            <p>A <strong>SEJA RECICLA</strong> é mais que uma empresa de coleta; somos parceiros estratégicos na jornada da sustentabilidade. Ajudamos nossos clientes a reduzir o impacto ambiental através da economia circular, transformando o que antes era "lixo" em matéria-prima e valor para o mercado.</p>
+        </div>
     </section>
 
     <section id="solucoes">
         <h2>Nossas Soluções</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?q=80&w=800" class="card-img" alt="Coleta Seletiva">
-                <div class="card-content">
-                    <h3>Coleta Seletiva</h3>
-                    <p>Gestão eficiente e rastreável de materiais recicláveis para empresas.</p>
+                <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?q=80&w=800" alt="Gestão de Resíduos">
+                <div class="card-body">
+                    <h3>Gestão de Resíduos</h3>
+                    <p>Coleta, transporte e destinação final de resíduos perigosos e não perigosos com total rastreabilidade.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=800" class="card-img" alt="Logística Reversa">
-                <div class="card-content">
+                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=800" alt="Logística Reversa">
+                <div class="card-body">
                     <h3>Logística Reversa</h3>
-                    <p>Destinação correta de eletrônicos e componentes complexos.</p>
+                    <p>Implementamos sistemas para o retorno de produtos e embalagens pós-consumo ao ciclo produtivo.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="card-img" alt="Descarte Seguro">
-                <div class="card-content">
-                    <h3>Descarte Seguro</h3>
-                    <p>Proteção integral de dados e destruição segura de ativos confidenciais.</p>
+                <img src="https://images.unsplash.com/photo-1605600611284-19520575e963?q=80&w=800" alt="Sucata Eletrônica">
+                <div class="card-body">
+                    <h3>E-Waste (Eletrônicos)</h3>
+                    <p>Descarte seguro de equipamentos de TI e eletrônicos, garantindo a destruição de dados sensíveis.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="consultoria">
-        <h2>Consultoria Ambiental</h2>
-        <p style="max-width: 600px; margin-bottom: 20px;">Ajudamos sua empresa a se adequar às normas da PNRS com eficiência e baixo custo.</p>
-        <a href="#contato" class="hero-btn" style="background: white; color: #2d5a27;">Saber Mais</a>
+        <h2>Consultoria Especializada</h2>
+        <p>Sua empresa está em conformidade com a PNRS? Nós cuidamos de toda a burocracia, licenciamento ambiental e relatórios de sustentabilidade (ESG) para você focar no seu negócio.</p>
+        <a href="#contato" class="hero-btn" style="background: white; color: var(--verde-escuro); margin-top: 30px;">Falar com Consultor</a>
     </section>
 
     <section id="contato">
-        <h2 style="margin-bottom: 30px;">Fale Conosco</h2>
+        <h2>Fale Conosco</h2>
+        <p style="margin-bottom: 30px;">Dúvidas ou orçamentos? Nossa equipe está pronta para te atender.</p>
         <form>
-            <input type="text" placeholder="Seu Nome" required>
-            <input type="email" placeholder="Seu E-mail" required>
-            <textarea placeholder="Como podemos ajudar sua empresa?" rows="4" required></textarea>
+            <div class="form-group">
+                <input type="text" placeholder="Nome Completo" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="E-mail Corporativo" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Como podemos ajudar sua empresa hoje?" rows="5" required></textarea>
+            </div>
             <button type="submit">Enviar Mensagem</button>
         </form>
     </section>
 
     <footer>
-        <p>© 2026 MG SEJA RECICLA - Atitude que transforma o mundo.</p>
+        <p><strong>SEJA RECICLA</strong> - Atitude que transforma o mundo.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; color: #888;">© 2026 Todos os direitos reservados.</p>
     </footer>
 
 </body>
