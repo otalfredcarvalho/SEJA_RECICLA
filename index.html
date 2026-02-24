@@ -20,7 +20,7 @@
         html { scroll-behavior: smooth; }
         body { line-height: 1.6; color: #333; padding-top: 80px; }
 
-        /* MENU RESPONSIVO */
+        /* HEADER & LOGO */
         header {
             background: var(--branco);
             padding: 10px 5%;
@@ -31,55 +31,64 @@
             position: fixed; width: 100%; top: 0; z-index: 1000;
         }
         
-        .logo a { display: flex; align-items: center; }
-        /* Ajustei para a imagem não quebrar se não existir */
-        .logo img { height: 80px; width: auto; min-width: 50px; transition: 0.3s; background: #eee; }
+        .logo img { height: 70px; width: auto; transition: 0.3s; }
+        .logo a { text-decoration: none; display: flex; align-items: center; }
 
-        nav { display: flex; flex-wrap: wrap; justify-content: center; }
-        nav a { margin: 5px 10px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
+        nav { display: flex; flex-wrap: wrap; }
+        nav a { margin-left: 20px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        nav a:hover { color: var(--verde-acao); }
 
-        /* WHATSAPP */
+        /* WHATSAPP FLUTUANTE */
         .btn-whatsapp {
-            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px;
+            position: fixed; width: 60px; height: 60px; bottom: 25px; right: 25px;
             background-color: var(--whatsapp); color: #FFF; border-radius: 50px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 2px 4px 10px rgba(0,0,0,0.3); z-index: 2000;
+            font-size: 30px; box-shadow: 2px 4px 15px rgba(0,0,0,0.2); z-index: 2000;
             text-decoration: none; transition: 0.4s;
         }
+        .btn-whatsapp:hover { transform: scale(1.1); background-color: #128c7e; }
 
-        /* SEÇÕES */
-        section { padding: 80px 5%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-
+        /* SEÇÃO HOME */
         #home {
-            padding: 140px 5%;
-            /* Troquei o arquivo local por um link real para teste */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('BG_sustentavel.jpg');
+            padding: 160px 5%;
+            /* Substituí 'BG_sustentavel.jpg' por um link funcional para teste */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070');
             background-size: cover; background-position: center; color: var(--branco);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        #home h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        #home h1 { font-size: 2.8rem; margin-bottom: 20px; max-width: 800px; }
 
-        .hero-btn { background: var(--verde-acao); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        .hero-btn { background: var(--verde-acao); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 25px; transition: 0.3s; }
+        .hero-btn:hover { background: var(--verde-escuro); }
 
-        /* GRIDS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; margin-top: 30px; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        .card img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
-        .card-body { padding: 20px; }
+        /* SEÇÕES GERAIS */
+        section { padding: 80px 10%; text-align: center; }
+        h2 { color: var(--verde-escuro); font-size: 2.2rem; margin-bottom: 20px; }
 
-        /* FORMULÁRIO */
-        form { background: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 500px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1.5px solid #eee; border-radius: 10px; outline: none; }
+        /* GRID DE SOLUÇÕES */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 25px; }
+        .card-body h3 { margin-bottom: 10px; color: var(--verde-escuro); }
+
+        /* CONTATO */
+        form { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1.5px solid #eee; border-radius: 10px; outline: none; font-size: 1rem; }
         input:focus { border-color: var(--verde-acao); }
-        button { background: var(--verde-escuro); color: white; padding: 15px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-weight: bold; }
+        button { background: var(--verde-escuro); color: white; padding: 15px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
 
-        footer { background: #1a1a1a; color: white; padding: 30px; text-align: center; }
+        footer { background: #1a1a1a; color: white; padding: 50px 5% 20px; text-align: center; }
+        footer .logo img { height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1); }
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px; }
+            header { flex-direction: column; padding: 15px; height: auto; }
             nav { margin-top: 15px; }
-            #home h1 { font-size: 1.8rem; }
-            .logo img { height: 60px; }
+            nav a { margin: 5px 10px; font-size: 0.9rem; }
+            #home h1 { font-size: 2rem; }
+            body { padding-top: 120px; }
         }
     </style>
 </head>
@@ -91,7 +100,9 @@
 
     <header>
         <div class="logo">
-            <a href="#home"><img src="SEJA_RECICLA_03.png" alt="Logo SEJA RECICLA"></a>
+            <a href="#home">
+                <img src="SEJA_RECICLA_03.png" alt="Logo SEJA RECICLA" onerror="this.src='https://via.placeholder.com/200x80?text=SEJA+RECICLA'">
+            </a>
         </div>
         <nav>
             <a href="#home">Home</a>
@@ -109,9 +120,8 @@
 
     <section id="quem-somos" style="background: var(--cinza-fundo);">
         <h2>Quem Somos</h2>
-        <p style="max-width: 800px; margin-top: 20px;">
-            A <strong>SEJA RECICLA</strong> atua na vanguarda da economia circular em Minas Gerais, 
-            transformando desafios ambientais em oportunidades de negócio com foco em rastreabilidade e eficiência.
+        <p style="max-width: 800px; margin: 0 auto;">
+            A <strong>SEJA RECICLA</strong> atua na vanguarda da economia circular em Minas Gerais, transformando desafios ambientais em oportunidades de negócio com foco em rastreabilidade e eficiência energética.
         </p>
     </section>
 
@@ -119,17 +129,17 @@
         <h2>Nossas Soluções</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800" alt="Gestão">
+                <img src="https://images.unsplash.com/photo-1591193520257-c030ea857817?q=80&w=800" alt="Gestão de Resíduos">
                 <div class="card-body">
                     <h3>Gestão Industrial</h3>
-                    <p>Coleta e processamento especializado de resíduos sólidos.</p>
+                    <p>Coleta, transporte e destinação final de resíduos sólidos com total segurança.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1605600611284-19520575e963?q=80&w=800" alt="Logística">
+                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=800" alt="Logística Reversa">
                 <div class="card-body">
                     <h3>Logística Reversa</h3>
-                    <p>Implementação de sistemas de retorno para conformidade ambiental.</p>
+                    <p>Sistemas eficientes para o retorno de embalagens e produtos ao ciclo produtivo.</p>
                 </div>
             </div>
         </div>
@@ -139,17 +149,20 @@
         <h2>Fale Conosco</h2>
         <form>
             <input type="text" placeholder="Seu Nome" required>
-            <input type="email" placeholder="E-mail" required>
-            <textarea placeholder="Como podemos ajudar?" rows="4" required></textarea>
+            <input type="email" placeholder="E-mail Corporativo" required>
+            <textarea placeholder="Como podemos ajudar sua empresa hoje?" rows="4" required></textarea>
             <button type="submit">Enviar Mensagem</button>
         </form>
     </section>
 
     <footer>
         <div class="logo">
-            <a href="#home"><img src="SEJA_RECICLA_03.png" alt="Logo SEJA RECICLA"></a>
+            <a href="#home">
+                <img src="SEJA_RECICLA_03.png" alt="Logo Rodapé" onerror="this.style.display='none'">
+            </a>
         </div>
         <p>© 2026 SEJA RECICLA - Atitude que transforma o mundo.</p>
+        <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Belo Horizonte - MG</p>
     </footer>
 
 </body>
